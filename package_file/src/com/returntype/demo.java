@@ -7,7 +7,10 @@ public class demo {
 	}
 
 	public String m2() {
+	int i;	
+	//System.out.println(i);
 		return "Swapnil";
+		
 	}
 
 	public double m3() {
