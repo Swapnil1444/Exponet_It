@@ -50,8 +50,14 @@ public class ParameriedMethed {
 		p.m5(b, s, 20, 11, true);
 		p.m6(b, s, 11, 22, false, 20.3f);
 		p.m7(b, s, 11, 211, false, 20.1f, 111.33);
-		p.m8(b, s, 11, 22, true, 220.2f, 11.11, 'c');
+		p.m8(b, s, 11, 22, true, 220.2f, 11.11, 'c'); 
+		p.m11(10);
+		
 
+	}
+
+	public void m11(long a) {
+		System.out.println("heloo");
 	}
 
 }

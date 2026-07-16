@@ -24,7 +24,7 @@ public class Dept {
 		a.omkar.eName="Omkar";
 		
 		a.vijay.age=28;
-		a.nayan.eName="Vijay";
+		a.vijay.eName="Vijay";
 		a.vijay.salary=30000000.33;
 		
 		a.prachi.age=19;
