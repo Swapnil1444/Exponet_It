@@ -1,4 +1,4 @@
-package com;
+package com.returnType;
 
 public class Emp {
 	

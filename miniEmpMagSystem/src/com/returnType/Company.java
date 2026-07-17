@@ -1,4 +1,4 @@
-package com;
+package com.returnType;
 
 public class Company {
 
@@ -16,8 +16,6 @@ public class Company {
 		System.out.println("Emp name:"+a.omkar.eName+" Age:"+a.omkar.age+" Salary:"+a.omkar.salary);
 		System.out.println("Emp name:"+a.vijay.eName+" Age:"+a.vijay.age+" Salary:"+a.vijay.salary);
 
-		
-		
 		
 	}
 
