@@ -5,7 +5,7 @@ public class ImplicityExamples {
 	public static void main(String[] args) {
 		
 		//byte>short>char>int>long>flott>double>
-		
+		// convart data into small to larg datatype 
 		
 		byte b=120;
 		short s=b;
