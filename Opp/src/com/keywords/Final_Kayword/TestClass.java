@@ -1,6 +1,6 @@
 package com.keywords.Final_Kayword;
 
-public class TestClass // extends FinalKayWordExample
+public class TestClass // exten ds FinalKayWordExample
 {
 
 //	@Override
@@ -9,6 +9,7 @@ public class TestClass // extends FinalKayWordExample
 	public int add(final int a, final int b) { // local varibale
 		// a=49;
 		return (a + b);
+		
 	}
 
 	public static void main(String[] args) {
@@ -28,6 +29,7 @@ public class TestClass // extends FinalKayWordExample
 		System.out.println("sum" + t.add(10, 20));
 //		System.out.println(t.name);
 //		t.display();
+	 
 
 	}
 
