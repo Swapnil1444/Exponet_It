@@ -1,8 +1,10 @@
 package com.keywords.static_keyword;
 
+import java.text.ParseException;
+
 public class StudentMng  {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 	
 		Student s1=new Student();
 		s1.id=101;
@@ -21,6 +23,11 @@ public class StudentMng  {
 		s3.id=103;
 		s3.name="Jay";
 		System.out.println(s3);
+		
+		Student.dateFormater();
+		
+		
+		StaticAndNon.main(args);
 		
 
 	}
