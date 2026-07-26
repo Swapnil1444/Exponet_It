@@ -7,11 +7,13 @@ public class StaticAndNon {
 	static String CollogeName = "DYPT";
 
 	public void m1() {
+	//	static int i1=10;
 		System.out.println("Non Static method.");
 		System.out.println(id + " " + name + " " + CollogeName);
 	}
 
 	public static void m2() {
+	//	static int i1=10;
 		System.out.println(" Static method.");
 		StaticAndNon s = new StaticAndNon();
 

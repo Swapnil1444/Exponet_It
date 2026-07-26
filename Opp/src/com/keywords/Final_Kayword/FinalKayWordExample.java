@@ -6,7 +6,7 @@ public final class FinalKayWordExample {
 	int i = 111;
 	final int age;
 
-	public  FinalKayWordExample() {
+	public FinalKayWordExample() {
 		age = 21;
 	}
 
