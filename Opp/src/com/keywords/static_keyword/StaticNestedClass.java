@@ -11,6 +11,8 @@ public class StaticNestedClass {
 			System.out.println("Static block 2");
 		}
 		
+		
+		
 		public static void m1() {
 			System.out.println("Display m1");
 			

@@ -2,7 +2,7 @@ package com.keywords.static_keyword;
 
 import java.text.ParseException;
 
-public class StudentMng  {
+ public class StudentMng  {
 
 	public static void main(String[] args) throws ParseException {
 	
