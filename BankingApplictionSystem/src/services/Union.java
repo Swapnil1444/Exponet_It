@@ -25,7 +25,7 @@ public class Union implements RBI {
 		System.out.print("Enter Email:");
 		ac.setEmail(sc.next());
 		System.out.print("Enter Aadhaar Number:");
-		ac.setAdarNum(sc.next());
+		ac.setAdarNum(validAdharNum(sc.next()));
 		System.out.print("Enetr Pan Card Number:");
 		ac.setPanNum(sc.next());
 		System.out.print("Enter Address:");
@@ -149,7 +149,7 @@ public class Union implements RBI {
 				break;
 			case 6:
 				System.out.print("Enter new Aadhaar Number:");
-				ac.setAdarNum(sc.next());
+				ac.setAdarNum(validAdharNum(sc.next()));
 				showUpdateMsg();
 				break;
 			case 7:
@@ -189,6 +189,14 @@ public class Union implements RBI {
 		System.err.println("Invalid Account Type.");
 		System.out.print("ReEnter Account Type(Savings or Current) :");
 		return validAccountType(sc.next());
+	}
+	public String validAdharNum(String num) {
+		if(num.length()==12) {
+			return num;
+		}
+		System.err.println("Invalid Aadhar Number");
+		System.out.print("ReEnter 12 digit Aadhar Card Number:");
+		return validAdharNum(sc.next());
 	}
 
 }
