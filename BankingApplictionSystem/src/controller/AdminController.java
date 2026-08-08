@@ -13,13 +13,14 @@ public class AdminController {
 		RBI r = new Union();
 		Scanner sc = new Scanner(System.in);
 		while (flag) {
-			System.out.println("---------------------------");
-			System.out.println("WELCOME UNION BANK OF INDIA");
-			System.out.println("---------------------------");
+			System.out.println("=======================================");
+			System.out.println("      WELCOME UNION BANK OF INDIA      ");
+			System.out.println("=======================================");
 
 			System.out.println("1.Create Account \n2.Display Account Details " + "\n3.Check Balance \n4.Deposit Amount "
 					+ "\n5.Withdraw Amount \n6.Update Account Info" + " \n7.Exit.");
-			System.out.println("---------------------------");
+			System.out.println("=======================================");
+
 			System.out.print("Select Option:");
 			int key = sc.nextInt();
 

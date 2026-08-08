@@ -11,11 +11,15 @@ public class Union implements RBI {
 
 	@Override
 	public void createAccount() {
-		System.out.println("------Create New Account------");
-		System.out.print("Enter Account Number:");
-		ac.setAccountNumber(sc.nextInt());
+		System.out.println("=======================================");
+		System.out.println("          Create New Account           ");
+		System.out.println("=======================================");
+
+//		System.out.print("Enter Account Number:");
+		ac.setAccountNumber((long)(Math.random()*Math.pow(10, 12)));
 		System.out.print("Enter Account Holder Name:");
-		ac.setAccountHolderName(sc.next());
+		ac.setAccountHolderName(sc.nextLine());
+//		sc.next();
 		System.out.print("Enter Account Type(Savings or Current):");
 		ac.setAccountType(validAccountType(sc.next()));
 		//ac.setAccountType(sc.next());
@@ -30,16 +34,18 @@ public class Union implements RBI {
 		ac.setPanNum(sc.next());
 		System.out.print("Enter Address:");
 		ac.setAddress(sc.next());
+		System.out.println("Deposit Amount:");
+		ac.setBalance(checkDeposit(sc.nextDouble()));
+		System.out.println("=======================================");
 
-		System.out.println("\nNew Account create successfully...😎\n");
-
+		System.out.println("\nAccount No:"+ac.getAccountNumber()+"\nNew Account create successfully...😎\n");
 	}
 
 	@Override
 	public void displayAccountDetails() {
 
 		if (checkAccountNumber()) {
-			System.out.println("\n" + ac + "\n");
+			ac.displayAccDetails();
 		} else {
 			System.err.println("Wrong Account Number try again.");
 		}
@@ -55,6 +61,14 @@ public class Union implements RBI {
 
 	}
 
+	public double checkDeposit(double amount) {
+		if(amount>=0) {
+			return amount;
+		}
+		System.err.println("Error:Negative value..!");
+		System.out.print("ReEnter Deposit Amount:");
+		return checkDeposit(sc.nextDouble());
+	}
 	@Override
 	public void deposit() {
 		if (checkAccountNumber()) {
@@ -103,10 +117,12 @@ public class Union implements RBI {
 	}
 
 	public boolean checkAccountNumber() {
-		System.out.println("----------------------------");
+	//	System.out.println("=======================================");
+
+		System.out.println("---------------------------------------");
 		System.out.print("Enter Account Number:");
-		int acNo = sc.nextInt();
-		System.out.println("----------------------------");
+		long acNo = sc.nextLong();
+		System.out.println("---------------------------------------");
 		if (acNo == ac.getAccountNumber()) {
 			return true;
 		}
@@ -116,15 +132,20 @@ public class Union implements RBI {
 	public void accountUpdateManu() {
 		boolean flag = true;
 		while (flag) {
+			System.out.println("=======================================");
+			System.out.println("       Update Account Information      ");
+			System.out.println("=======================================");
 			System.out.println("1.Account Holder Name \n2.Account Type \n3.Mobile Number"
-							+ " \n4.Email \n5.Address \n6.Aadhaar Number \n7.Pan Card Number \n8.Back");
-			System.out.println("-------------------------");
-			System.out.print("Wich Data Update:");
+							+ " \n4.Email \n5.Address  \n6.Back");
+			System.out.println("=======================================");
+
+			System.out.print("Select Option:");
 			int ch = sc.nextInt();
+			System.out.println("---------------------------------------");
 			switch (ch) {
 			case 1:
 				System.out.print("Enter new Account Holder Name:");
-				ac.setAccountHolderName(sc.next());
+				ac.setAccountHolderName(sc.nextLine());
 				showUpdateMsg();
 				break;
 			case 2:
@@ -147,24 +168,24 @@ public class Union implements RBI {
 				ac.setAddress(sc.next());
 				showUpdateMsg();
 				break;
+//			case 6:
+//				System.out.print("Enter new Aadhaar Number:");
+//				ac.setAdarNum(validAdharNum(sc.next()));
+//				showUpdateMsg();
+//				break;
+//			case 7:
+//				System.out.println("Enter new Pan card Number:");
+//				ac.setPanNum(sc.next());
+//				showUpdateMsg();
+//				break;
 			case 6:
-				System.out.print("Enter new Aadhaar Number:");
-				ac.setAdarNum(validAdharNum(sc.next()));
-				showUpdateMsg();
-				break;
-			case 7:
-				System.out.println("Enter new Pan card Number:");
-				ac.setPanNum(sc.next());
-				showUpdateMsg();
-				break;
-			case 8:
 				flag = false;
 				break;
 			default:
 				System.err.println("Invalid Input..!");
 				break;
 			}
-			System.out.println("-----------------------");
+			System.out.println("---------------------------------------");
 		}
 	}
 
@@ -174,7 +195,13 @@ public class Union implements RBI {
 
 	public String validContectNumber(String num) {
 		if (10 == num.length()) {
-			return num;
+			if(!(num.equals(ac.getMobileNumber()))){
+				return num;
+			}else {
+				System.err.println("Same Contect Number..!");
+				System.out.print("ReEnter 10 digit Contect Number:");
+				return validContectNumber(sc.next());
+			}
 		}
 		System.err.println("Invalid Contect Number.");
 		System.out.print("ReEnter 10 digit Contect Number:");
@@ -184,15 +211,37 @@ public class Union implements RBI {
 
 	public String validAccountType(String accType) {
 		if ("Savings".equalsIgnoreCase(accType) || "Current".equalsIgnoreCase(accType)) {
-			return accType;
+			return accType.toUpperCase();
 		}
 		System.err.println("Invalid Account Type.");
 		System.out.print("ReEnter Account Type(Savings or Current) :");
 		return validAccountType(sc.next());
 	}
+	
+	//check adhar frist 4 digit not 0-1 
+	public boolean adhar(String adharNum){
+		for(int i=0;i<adharNum.length();i++) {
+			char ch=adharNum.charAt(i);
+			if(ch<'0'||ch>'9') { // Check each character is a digit
+				return false;
+			}
+			if(i==0&&(ch=='0'||ch=='1')) { // Check first digit
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	public String validAdharNum(String num) {
-		if(num.length()==12) {
-			return num;
+		if(num==null||num.length()==12) {
+			if(adhar(num)) {
+				return num;
+			}else {
+				System.err.println("Aadhaar should not start with 0 or 1");
+				System.out.print("ReEnter 12 digit Aadhar Card Number:");
+				return validAdharNum(sc.next());
+			}
+			//return num;
 		}
 		System.err.println("Invalid Aadhar Number");
 		System.out.print("ReEnter 12 digit Aadhar Card Number:");

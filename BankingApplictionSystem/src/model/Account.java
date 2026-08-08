@@ -111,11 +111,42 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "-------Account Details-------" + "\n\nAccount Number:" + accountNumber + "\nAccount Holder Name:"
-				+ accountHolderName + "\nBalance:" + balance + "\nAccount Type:" + accountType + "\nAadhaar Number:"
+		return "-------Account Details-------"
+				+ "\n\nAccount Number:" + accountNumber + 
+				"\nAccount Holder Name:"+ accountHolderName + 
+				"\nBalance:" + balance + ""
+				+ "\nAccount Type:" + accountType + "\nAadhaar Number:"
 				+ adarNum + "\nPan Card Number:" + panNum + "\nIFSC Code:" + ifscCode + "\nBranch Name:" + branchName
 				+ "\nMobile Number:" + mobileNumber + "\n" + "Email:" + email + "\nAddress:" + address + "\nStatus:"
 				+ status;
 	}
+	
+	public void displayAccDetails() {
+		System.out.println("=======================================");
+		System.out.println("           Account Details             ");
+		System.out.println("=======================================");
+		System.out.println("Account Number      : "+ accountNumber);
+		System.out.println("Account Holder Name : "+ accountHolderName);
+		System.out.println("Balance             : "+ balance);
+		System.out.println("Account Type        : "+ accountType);
+		System.out.println("Aadhaar Number      : "+ adarNum);
+		System.out.println("Pan Card Number:    : "+ panNum);
+		System.out.println("IFSC Code           : "+ ifscCode);
+		System.out.println("Branch Name         : "+ branchName);
+		System.out.println("Mobile Number       : "+ mobileNumber);
+		System.out.println("Email               : "+ email);
+		System.out.println("Address             : "+ address);
+		System.out.println("Status              : "+ status);
+		System.out.println("=======================================");
+	
+	}
+	
+//	public static void main(String[] args) {
+//		Account a=new Account();
+//		System.out.println(a);
+//		
+//		System.out.println("------------------");
+//		a.displayAccDetails();
+//	}
 
 }
