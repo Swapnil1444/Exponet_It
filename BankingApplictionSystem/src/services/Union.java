@@ -24,7 +24,7 @@ public class Union implements RBI {
 		ac.setAccountType(validAccountType(sc.next()));
 		//ac.setAccountType(sc.next());
 		System.out.print("Enter Moblie Number:");
-		ac.setMobileNumber(validContectNumber(sc.next()));
+		ac.setMobileNumber(validContectNumber(sc.nextLong()));
 		// ac.setMobileNumber(sc.next());
 		System.out.print("Enter Email:");
 		ac.setEmail(sc.next());
@@ -155,7 +155,7 @@ public class Union implements RBI {
 				break;
 			case 3:
 				System.out.print("Enter new Mobile Number:");
-				ac.setMobileNumber(validContectNumber(sc.next()));
+				ac.setMobileNumber(validContectNumber(sc.nextLong()));
 				showUpdateMsg();
 				break;
 			case 4:
@@ -193,19 +193,34 @@ public class Union implements RBI {
 		System.out.println("\nUpdate Data Successfully...!\n");
 	}
 
-	public String validContectNumber(String num) {
-		if (10 == num.length()) {
-			if(!(num.equals(ac.getMobileNumber()))){
+//	public String validContectNumber(String num) {
+//		if (10 == num.length()) {
+//			if(!(num.equals(ac.getMobileNumber()))){
+//				return num;
+//			}else {
+//				System.err.println("Same Contect Number..!");
+//				System.out.print("ReEnter 10 digit Contect Number:");
+//				return validContectNumber(sc.next());
+//			}
+//		}
+//		System.err.println("Invalid Contect Number.");
+//		System.out.print("ReEnter 10 digit Contect Number:");
+//		return validContectNumber(sc.next());
+//
+//	}
+	public long validContectNumber(long num) {
+		if ((1000000000<=num&&9999999999l>=num)) {
+			if(!(num==ac.getMobileNumber())){
 				return num;
 			}else {
 				System.err.println("Same Contect Number..!");
 				System.out.print("ReEnter 10 digit Contect Number:");
-				return validContectNumber(sc.next());
+				return validContectNumber(sc.nextLong());
 			}
 		}
 		System.err.println("Invalid Contect Number.");
 		System.out.print("ReEnter 10 digit Contect Number:");
-		return validContectNumber(sc.next());
+		return validContectNumber(sc.nextLong());
 
 	}
 

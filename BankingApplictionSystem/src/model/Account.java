@@ -8,7 +8,7 @@ public class Account {
 	private String accountType;
 	private final String ifscCode = "UBIN0916757";
 	private final String branchName = "Akurdi";
-	private String mobileNumber;
+	private long mobileNumber;
 	private String email;
 	private String address;
 	private final double minimumBalance = 1000;
@@ -64,11 +64,11 @@ public class Account {
 		this.accountType = accountType;
 	}
 
-	public String getMobileNumber() {
+	public long getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(String mobileNumber) {
+	public void setMobileNumber(long mobileNumber) {
 
 		this.mobileNumber = mobileNumber;
 	}
