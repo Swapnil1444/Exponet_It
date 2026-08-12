@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import services.RBI;
@@ -7,7 +8,7 @@ import services.Union;
 
 public class AdminController {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		boolean flag = true;
 		RBI r = new Union();

@@ -1,7 +1,9 @@
 package services;
 
+import java.io.IOException;
 import java.util.Scanner;
 
+import fileOperation.FileOperation;
 import model.Account;
 
 public class Union implements RBI {
@@ -10,7 +12,7 @@ public class Union implements RBI {
 	Account ac = new Account();
 
 	@Override
-	public void createAccount() {
+	public void createAccount() throws IOException  {
 		System.out.println("=======================================");
 		System.out.println("          Create New Account           ");
 		System.out.println("=======================================");
@@ -34,11 +36,11 @@ public class Union implements RBI {
 		ac.setPanNum(sc.next());
 		System.out.print("Enter Address:");
 		ac.setAddress(sc.next());
-		System.out.println("Deposit Amount:");
+		System.out.print("Deposit Amount:");
 		ac.setBalance(checkDeposit(sc.nextDouble()));
 		System.out.println("=======================================");
 
-		System.out.println("\nAccount No:"+ac.getAccountNumber()+"\nNew Account create successfully...😎\n");
+		FileOperation.saveAccount(ac);		
 	}
 
 	@Override
