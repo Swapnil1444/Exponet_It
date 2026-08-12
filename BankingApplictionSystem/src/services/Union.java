@@ -39,7 +39,7 @@ public class Union implements RBI {
 		System.out.print("Deposit Amount:");
 		ac.setBalance(checkDeposit(sc.nextDouble()));
 		System.out.println("=======================================");
-
+		sc.nextLine();
 		FileOperation.saveAccount(ac);		
 	}
 
