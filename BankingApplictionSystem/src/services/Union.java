@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import fileOperation.FileOperation;
 import model.Account;
+import model.Validetions;
 
 public class Union implements RBI {
 
@@ -19,21 +20,22 @@ public class Union implements RBI {
 
 //		System.out.print("Enter Account Number:");
 		ac.setAccountNumber((long)(Math.random()*Math.pow(10, 12)));
-		System.out.print("Enter Account Holder Name:");
-		ac.setAccountHolderName(sc.nextLine());
+		//System.out.print("Enter Account Holder Name:");
+		ac.setAccountHolderName(Validetions.validName());
 //		sc.next();
 		System.out.print("Enter Account Type(Savings or Current):");
 		ac.setAccountType(validAccountType(sc.next()));
 		//ac.setAccountType(sc.next());
-		System.out.print("Enter Moblie Number:");
-		ac.setMobileNumber(validContectNumber(sc.nextLong()));
-		// ac.setMobileNumber(sc.next());
-		System.out.print("Enter Email:");
-		ac.setEmail(sc.next());
-		System.out.print("Enter Aadhaar Number:");
-		ac.setAdarNum(validAdharNum(sc.next()));
-		System.out.print("Enetr Pan Card Number:");
-		ac.setPanNum(sc.next());
+		sc.nextLine();
+		System.out.print("");
+		ac.setMobileNumber( (Validetions.validContectNo()));
+		
+//		System.out.print("Enter Email:");
+		ac.setEmail(Validetions.validEmail());
+	//	System.out.print("Enter Aadhaar Number:");
+		ac.setAdarNum(Validetions.validAdharNo());
+		/* System.out.print("Enetr Pan Card Number:"); */
+		ac.setPanNum(Validetions.validPanNo());
 		System.out.print("Enter Address:");
 		ac.setAddress(sc.next());
 		System.out.print("Deposit Amount:");

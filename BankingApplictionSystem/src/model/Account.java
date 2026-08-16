@@ -68,9 +68,9 @@ public class Account {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(long mobileNumber) {
+	public void setMobileNumber(long d) {
 
-		this.mobileNumber = mobileNumber;
+		this.mobileNumber = d;
 	}
 
 	public String getEmail() {
