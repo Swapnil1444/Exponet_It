@@ -10,7 +10,6 @@ public class StringAllMethods {
 		s=s.trim(); // remove the frist and last space
 		System.out.println(s);
 		System.out.println(s.length());
-
 		System.out.println(s.toUpperCase());
 		System.out.println(s.toLowerCase());
 		
@@ -58,7 +57,7 @@ public class StringAllMethods {
 		
 		System.out.println("".isEmpty()+" "+" hello".isEmpty());//boolen
 		
-		System.out.println(s3.compareTo(s5)); //no undasting this method
+		System.out.println(s3.compareTo(s5)); // 
 		
 		int i=300;
 		String sNum=String.valueOf(i); 

@@ -27,7 +27,8 @@ public class Union implements RBI {
 		ac.setAccountType(validAccountType(sc.next()));
 		//ac.setAccountType(sc.next());
 		sc.nextLine();
-		System.out.print("");
+		System.out.print(" ");
+		//sc.nextLine();
 		ac.setMobileNumber( (Validetions.validContectNo()));
 		
 //		System.out.print("Enter Email:");
@@ -148,8 +149,8 @@ public class Union implements RBI {
 			System.out.println("---------------------------------------");
 			switch (ch) {
 			case 1:
-				System.out.print("Enter new Account Holder Name:");
-				ac.setAccountHolderName(sc.nextLine());
+				//System.out.print("Enter new Account Holder Name:");
+				ac.setAccountHolderName(Validetions.validName());
 				showUpdateMsg();
 				break;
 			case 2:
@@ -158,13 +159,13 @@ public class Union implements RBI {
 				showUpdateMsg();
 				break;
 			case 3:
-				System.out.print("Enter new Mobile Number:");
-				ac.setMobileNumber(validContectNumber(sc.nextLong()));
+				//System.out.print("Enter new Mobile Number:");
+				ac.setMobileNumber(Validetions.validContectNo());
 				showUpdateMsg();
 				break;
 			case 4:
-				System.out.print("Enter new Email:");
-				ac.setEmail(sc.next());
+				//System.out.print("Enter new Email:");
+				ac.setEmail(Validetions.validEmail());
 				showUpdateMsg();
 				break;
 			case 5:
@@ -266,5 +267,4 @@ public class Union implements RBI {
 		System.out.print("ReEnter 12 digit Aadhar Card Number:");
 		return validAdharNum(sc.next());
 	}
-
 }

@@ -20,7 +20,7 @@ public class AdminController {
 			System.out.println("=======================================");
 
 			System.out.println("1.Create Account \n2.Display Account Details " + "\n3.Check Balance \n4.Deposit Amount "
-					+ "\n5.Withdraw Amount \n6.Update Account Info \n7.Display All Account Detailes \n8.Show File Information \n9.File Backup data \n10.Delete File \n11.Exit.");
+					+ "\n5.Withdraw Amount \n6.Update Account Info \n7.Display All Account Detailes \n8.Show File Information \n9.File Backup data \n10.Delete File \n11.Search Account \n12.Exit");
 			System.out.println("=======================================");
 
 			System.out.print("Select Option:");
@@ -58,6 +58,9 @@ public class AdminController {
 				FileOperation.deleteFile();
 				break;
 			case 11:
+				FileOperation.SherchAccount();
+				break;
+			case 12:
 				System.out.println("Exit...!");
 				flag = false;
 				break;

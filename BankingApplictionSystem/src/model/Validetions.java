@@ -19,7 +19,6 @@ public class Validetions {
 	}
 
 	public static String validAdharNo() {
-
 		sc.nextLine();
 		System.out.print("Enter Aadhaar Number:");
 		String no = sc.next();
