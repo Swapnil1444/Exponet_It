@@ -51,6 +51,37 @@ SELECT * FROM empDetails;
 
 #-------------------------------------------------------
 #data types
+CREATE database emp;
+use emp;
+
+create table empAge(age tinyint);
+insert into empAge values(20);
+
+create table empMoblie(mobileNo bigint);
+insert into empMoblie values(1234567890);
+
+select * From empMoblie;
+
+create table dinner(catagary enum ("breackfast","lunch","dinar"));
+insert into dinner values ("lunch");
+select * from dinner;
+
+#date time
+create table dob(Bdate date);
+insert into dob values('2019-02-09');
+select * from dob;
+
+create table lunchTime(lunchTime time);
+insert into lunchTime values('22:11:09');
+select * from lunchTime;
+
+create table dateandtime(livedatatime timestamp);
+insert into dateandtime values (current_timestamp);
+select * from dateandtime;
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-package model;
+package services;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -8,21 +8,20 @@ public class Validetions {
 	static Scanner sc = new Scanner(System.in);
 
 	public static String validName() {
-
 		System.out.print("Enter Account Holder Name:");
 		String name = sc.next();
 		if (Pattern.matches("[A-Za-z]+", name)) {
 			return name;
 		}
 		System.err.println("Invalid Name...!");
+		
 		return validName();
 	}
 
 	public static String validAdharNo() {
-		sc.nextLine();
 		System.out.print("Enter Aadhaar Number:");
-		String no = sc.nextLine();
-		if (Pattern.matches("[2-9]{1}[0-9]{3}[]{1}[0-9]{4}[]{1}[0-9]{4}", no)) {
+		String no = sc.next();
+		if (Pattern.matches("[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}", no)) {
 			return no;
 		}
 		System.err.println("Invalid Aadhar Number...!");
@@ -48,14 +47,35 @@ public class Validetions {
 		System.err.println("Invalid Contect Number...!");
 		return validContectNo();
 	}
-	
+
 	public static String validEmail() {
 		System.out.print("Enter Email:");
-		String email=sc.next();
-		if(Pattern.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", email)) {
+		String email = sc.next();
+		if (Pattern.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", email)) {
 			return email;
 		}
 		System.err.println("Invalid Email Address...!");
 		return validEmail();
+	}
+
+	public static long validAccountNo() {
+		System.out.print("Enetr Account No:");
+		String accNo=sc.next();
+		if(Pattern.matches("[0-9]{6}", accNo)) {
+			return Long.parseLong(accNo);
+		}
+		System.err.println("Invalid Input..!");
+		
+		return validAccountNo();
+	}
+	
+	public static String validAccountType() {
+		System.out.print("Enter Account Type(Savings or Current) :");
+		String accType=sc.next();
+		if ("Savings".equalsIgnoreCase(accType) || "Current".equalsIgnoreCase(accType)) {
+			return accType.toUpperCase();
+		}
+		System.err.println("Invalid Account Type.");
+		return validAccountType();
 	}
 }
