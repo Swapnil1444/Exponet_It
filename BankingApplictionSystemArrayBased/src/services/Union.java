@@ -36,6 +36,8 @@ public class Union implements RBI {
 				System.out.print("Enter Deposit Amount:");
 				ac.setBalance(sc.nextDouble());
 				accounts[i] = ac;
+				
+				FileOperation.saveAccount(ac);
 
 			}
 			System.out.println("Accounts create successfully...😎");
@@ -54,17 +56,17 @@ public class Union implements RBI {
 		System.out.println("=======================================");
 		System.out.println("         Account Information           ");
 		System.out.println("=======================================");
-		System.out.printf("%-14s %-14s %-9s %-10s %-10s %-10s %-10s%n", " Account No", "Holder Name", "Type",
-				"Aadhar No", "Address", "Balance", "Branch Name");
-		System.out.println("--------------------------------------------------------------------------------------");
+		System.out.printf("%-14s %-14s %-9s %-10s %-10s %-10s %-10s %-10s%n", " Account No", "Holder Name", "Type",
+				"Aadhar No", "Address", "Balance", "Moblie No","Email");
+		System.out.println("------------------------------------------------------------------------------------------------");
 		for (Account ac : accounts) {
 			if (ac != null) {
-				System.out.printf("%-14s %-14s %-6s %-10s %-10s %-10s %-1s%n", ac.getAccountNumber(),
+				System.out.printf("%-14s %-14s %-6s %-10s %-10s %-10s %-10s %-10s%n", ac.getAccountNumber(),
 						ac.getAccountHolderName(), ac.getAccountType(), ac.getAdarNum(), ac.getAddress(),
-						ac.getBalance(), ac.getBranchName());
+						ac.getBalance(), ac.getMobileNumber(),ac.getEmail());
 			}
 		}
-		System.out.println("--------------------------------------------------------------------------------------");
+		System.out.println("------------------------------------------------------------------------------------------------");
 	}
 
 	@Override

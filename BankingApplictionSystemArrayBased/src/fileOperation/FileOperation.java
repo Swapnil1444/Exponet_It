@@ -21,7 +21,7 @@ public class FileOperation {
 		FileWriter fw = new FileWriter("Accounts.txt", true);
 		BufferedWriter bw = new BufferedWriter(fw);
 		bw.write(ac.getAccountNumber() + "," + ac.getAccountHolderName() + "," + ac.getAccountType() + ","
-				+ ac.getAdarNum() + "," + ac.getAddress() + "," + ac.getBalance() + "," + ac.getBranchName());
+				+ ac.getAdarNum() + "," + ac.getAddress() + "," + ac.getBalance() + "," + ac.getBranchName()+","+ac.getEmail()+","+ac.getMobileNumber()+","+ac.getPanNum());
 		bw.newLine();
 		bw.close();
 		System.out.println("\nAccount No:" + ac.getAccountNumber() + "\nNew Account create successfully...😎\n");
