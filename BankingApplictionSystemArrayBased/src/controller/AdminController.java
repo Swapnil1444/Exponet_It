@@ -20,14 +20,14 @@ public class AdminController {
 			System.out.println("      WELCOME UNION BANK OF INDIA      ");
 			System.out.println("=======================================");
 
-			System.out.println("1.Create Account \n2.Display All Account Details " + "\n3.Check Balance \n4.Deposit Amount "
-					+ "\n5.Withdraw Amount \n6.Update Account Info "
+			System.out.println("1.Create Account \n2.Display All Account Details "
+					+ "\n3.Check Balance \n4.Deposit Amount " + "\n5.Withdraw Amount \n6.Update Account Info "
 					// + "\n7.Display All Account Detailes \n8.Show File Information \n9.File Backup
 					// data \n10.Delete File \n11.Search Account "
 					+ "\n7.Exit");
 			System.out.println("=======================================");
-			try {	
-			System.out.print("Select Option:");
+			try {
+				System.out.print("Select Option:");
 				int key = sc.nextInt();
 				switch (key) {
 				case 1:
@@ -71,12 +71,12 @@ public class AdminController {
 					System.err.println("Invalid Input..!");
 					break;
 				}
-			}catch (Exception e) {
-				
-				System.out.println("Invalid Input:"+e);
+			} catch (Exception e) {
+
+				System.out.println("Invalid Input:" + e);
 				sc.nextLine();
 			}
-		
+
 		}
 
 	}

@@ -48,6 +48,8 @@ INSERT INTO empDetails (eName)VALUES ("SWAPNIL");
 INSERT INTO empDetails (eName)VALUES ("JAY");
 SELECT * FROM empDetails;
 
+show databases;
+
 
 #-------------------------------------------------------
 #data types
@@ -81,16 +83,64 @@ select * from dateandtime;
 
 
 
+#----------------------------------------------
+#drop and truncate and delete ,update
 
+use emp;
+create table EmpDate(eid int primary key ,ename varchar(20));
+insert into EmpDate values(01,"swapnil"),(02,"jay"),(03,"Om");
+select *from EmpDate;
 
+#detete praticular row of the table
+delete from EmpDate where eid=01;
 
+#udate table info
+update EmpDate set ename="Don" where eid=02; 
 
-
-
+-- truncate using this to delete from all data of the table 
+ truncate table EmpDate;
  
+ -- drop are the use to delete the table 
+ drop table EmpDate;
+select *from EmpDate; # show on table not exting on databse
 
+#join ------------------------------------
+-- 4 type of join 
 
+use emp;
+create table Department(did int primary key, dname varchar(20));
+insert into Department values(01,"selles"),(02,"It dept"),(03,"Hr"),(04,"Software dept");
+select * from Department;
 
+create table Employee(eid int primary key,ename varchar(20) ,deptId int ,foreign key (deptId) references Department (did));
+insert into Employee values(01,"Swapnil Supekar",02),(02,"Om yadav",02),(03,"Jay Patil",01),(04,"Vijay nirpal",04);
+select * from Employee;
 
+# 1) ineer join
+
+select * from Employee e
+inner join Department d
+on e.deptId=d.did;
+
+# 2) left join
+select * from Employee e
+left join Department d
+on e.deptId=d.did;
+
+# 3) right join
+select * from Employee e
+right join Department d
+on e.deptId=d.did;
+
+# 4) full join
+select * from Employee e
+left join Department d
+on e.deptId=d.did
+union
+select * from Employee e
+right join Department d
+on e.deptId=d.did;
+
+#-- ------------------------------------
 
 
