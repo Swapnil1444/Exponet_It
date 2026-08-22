@@ -5,30 +5,30 @@ import java.util.Scanner;
 import Model.Vehicles;
 
 public class ParkingLotData implements Vehicle {
-	int numVehicles = 1;
+
 	Scanner sc = new Scanner(System.in);
-	Vehicles v = new Vehicles(0, " ", " ");
+
 	Vehicles[] vehicles = new Vehicles[MAX_PARKING_SPACES];
 
 	@Override
 	public void addVehicles() {
 
 		System.out.print("How Many Number of Add Vehicles(Max 10):");
-		numVehicles = checkNumOfVehical(sc.nextInt());
+		int numVehicles = checkNumOfVehical(sc.nextInt());
 
-		// Vehicles[] vehicles = new Vehicles[numVehicles];
 		for (int i = 0; i < numVehicles; i++) {
+			Vehicles v = new Vehicles();
 			System.out.println("------------------------------------------");
 			System.out.println((i + 1) + ").Add Vehicle");
-			System.out.print("Enter Vehicle Number:");
-			int vNum = checkNumNotMatch(sc.nextInt());
+			// System.out.print("Enter Vehicle Number:");
+			v.setVehicleNum(Validetions.validVehicleNo());
 			sc.nextLine();
 			System.out.print("Enter Vehicle Ownar Name:");
-			String name = sc.nextLine();
+			v.setOwenrName(sc.next());
 			System.out.print("Enter Vehicle Type(Car,Bike,Truck):");
 			String vType = vehicleType(sc.next());
-			// System.out.println();
-			vehicles[i] = new Vehicles(vNum, name, vType);
+			v.setTypeOfVehicle(vType);
+			vehicles[i] = v;
 		}
 		System.out.println("------------------------------------------");
 		System.out.println("\nUploding " + numVehicles + " Vehicles Successfully...😎\n");
@@ -41,52 +41,47 @@ public class ParkingLotData implements Vehicle {
 		System.out.println("==========================================");
 		System.out.printf("%-10s %-19s %-10s%n", "NUMBER", "OWENR NAME", "VEHICLE");
 		System.out.println("------------------------------------------");
-		for (int i = 0; i < numVehicles; i++) {
-			System.out.printf("%-10d %-19s %-10s%n", vehicles[i].getVehicleNum(), vehicles[i].getOwenrName(),
-					vehicles[i].getTypeOfVehicle());
+		for (Vehicles v : vehicles) {
+			if (v != null) {
+				System.out.printf("%-10s %-19s %-10s%n", v.getVehicleNum(), v.getOwenrName(), v.getTypeOfVehicle());
+			}
 		}
 
 	}
 
 	@Override
 	public void searchForVehicles() {
-		int index = 0;
-		boolean flag = false;
-		System.out.print("Enter Vehicle Number:");
-		int vNo = sc.nextInt();
-		for (int i = 0; i < numVehicles; i++) {
-			if (vNo == vehicles[i].getVehicleNum()) {
-				index = i;
-				flag = true;
-			}
-		}
-		if (flag) {
-			System.out.println("==========================================");
-			System.out.printf("%-10s %-19s %-10s%n", "NUMBER", "OWENR NAME", "VEHICLE");
-			System.out.println("------------------------------------------");
-			System.out.printf("%-10d %-19s %-10s%n", vehicles[index].getVehicleNum(), vehicles[index].getOwenrName(),
-					vehicles[index].getTypeOfVehicle());
-
-		} else {
-			System.out.println("No Available Data in Database...!");
-		}
-	}
+		
+		String vNo = Validetions.validVehicleNo();
+		System.out.println("==========================================");
+		System.out.printf("%-10s %-19s %-10s%n", "NUMBER", "OWENR NAME", "VEHICLE");
+		System.out.println("------------------------------------------");
+		for (Vehicles v:vehicles ) {
+			if (v != null&&(vNo.equals(v.getVehicleNum()))) {
+									
+						System.out.printf("%-10s %-19s %-10s%n", v.getVehicleNum(), v.getOwenrName(),
+								v.getTypeOfVehicle());
+					
+				}
+			}}
 
 	@Override
 	public void countTotalNumVehicles() {
 
-		int car=0;
-		int bike=0;
-		int truck=0;
-		for(int i=0;i<numVehicles;i++) {
-			if(vehicles[i].getTypeOfVehicle().equals("CAR")) {
-				car+=1;
-			}
-			if(vehicles[i].getTypeOfVehicle().equals("BIKE")) {
-				bike+=1;
-			}
-			if(vehicles[i].getTypeOfVehicle().equals("TRUCK")) {
-				truck+=1;
+		int car = 0;
+		int bike = 0;
+		int truck = 0;
+		for (Vehicles v : vehicles) {
+			if (v != null) {
+				if (v.getTypeOfVehicle().equals("CAR")) {
+					car += 1;
+				}
+				if (v.getTypeOfVehicle().equals("BIKE")) {
+					bike += 1;
+				}
+				if (v.getTypeOfVehicle().equals("TRUCK")) {
+					truck += 1;
+				}
 			}
 		}
 		System.out.println("==========================================");
@@ -94,9 +89,9 @@ public class ParkingLotData implements Vehicle {
 		System.out.println("==========================================");
 		System.out.printf("%-10s %-19s %-10s%n", "CARS", "BIKES", "TRUCKS");
 		System.out.println("------------------------------------------");
-		System.out.printf("%-10d %-19d %-10d%n", car, bike,truck);
-		//System.out.println(" Car:"+car+ "\n Bikes:"+bike+" \n Truck"+truck);
-		
+		System.out.printf("%-10d %-19d %-10d%n", car, bike, truck);
+		// System.out.println(" Car:"+car+ "\n Bikes:"+bike+" \n Truck"+truck);
+
 	}
 
 	public String vehicleType(String type) {

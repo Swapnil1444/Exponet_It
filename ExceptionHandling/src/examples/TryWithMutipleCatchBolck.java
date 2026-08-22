@@ -15,8 +15,10 @@ public class TryWithMutipleCatchBolck {
 			
 		}catch (InputMismatchException e) {
 			System.out.println(e);
+			
 		}catch (ArithmeticException e) {
 		  System.out.println(e);
+		  
 		}
 
 	}

@@ -105,7 +105,7 @@ update EmpDate set ename="Don" where eid=02;
 select *from EmpDate; # show on table not exting on databse
 
 #join ------------------------------------
--- 4 type of join 
+-- 6 type of join 
 
 use emp;
 create table Department(did int primary key, dname varchar(20));
@@ -142,5 +142,72 @@ right join Department d
 on e.deptId=d.did;
 
 #-- ------------------------------------
+# 5)full join and 6)self join 
+
+use emp;
+show tables;
+create table Student(id int primary key ,studName varchar(30),studAge int);
+create table Techear(tid int primary key ,tName varchar(30),StudId int ,foreign key(studId) references Student(id));
+create table Subjects(sid int primary key,sName varchar(20),tId int ,foreign key (tId) references Techear(tid));
+
+insert into Student values(101,"swapnil",20),(102,"jay",21),(103,"om",19);
+select * from Student;
+
+insert into Techear values(1,"om",102),(2,"nilesh",102),(3,"omkar",102),(4,"pratic",103);
+select * from Techear;
+
+insert into Subjects values (11,"java",2),(12,"py",4),(13,"sql",3);
+select * from Subjects;
+
+#full join
+select S.studName ,T.tName ,S1.sName from Student S
+inner join Techear T on
+S.id=T.studId 
+inner join Subjects S1 on
+T.tId=S1.tId;
+
+#--------------------------------------
+# crass join
+
+use emp;
+create table Addidas( tId int primary key,tname varchar(20));
+create table size(sId int primary key ,tsize char(1));
+
+insert into Addidas values(101,"Tshart"),(102,"comanShart"),(103,"fullShart");
+select * from Addidas;
+
+insert into size values (1,'M'),(2,'S'),(3,'L'),(4,'X');
+select * from size; 
+
+select a.tname ,s.tsize from Addidas a cross join size s;
+
+# self join
+
+create table Company( eId int primary key ,ename varchar(20), mangerId int);
+
+insert into Company values(1,"jay",null),(2,"swapnil",1),(3,"Om",1),(4,"rohit",3),(5,"yash",2);
+select * from Company;
+select e.ename as employee , m.ename as manger from Company e 
+join Company m on e.eId=m.mangerId;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
