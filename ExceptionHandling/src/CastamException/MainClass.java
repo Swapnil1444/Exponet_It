@@ -8,7 +8,6 @@ public class MainClass {
 		}else {
 			System.out.println("Withdraw successfully..!");
 		}
-		
 	}
 
 	public static void main(String[] args) {
