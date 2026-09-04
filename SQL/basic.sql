@@ -190,10 +190,30 @@ select * from Company;
 select e.ename as employee , m.ename as manger from Company e 
 join Company m on e.eId=m.mangerId;
 
+#-------------------------------------
+#function
+use emp;
+Delimiter $$
+create function getEmp(id int)
+returns varchar(20)
+begin
+return "swapnil";
+end
+$$ Delimiter ;
 
+select getEmp(10);
 
+SET GLOBAL log_bin_trust_function_creators = 1;
 
+Delimiter aa
+create function getsum1(num1 int ,num2 int )
+returns int
+begin
+return (num1+num2);
+end
+aa Delimiter ;
 
+select getsum1(10,20);
 
 
 
