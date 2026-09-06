@@ -75,7 +75,7 @@ public class StudentMngSystemMain {
 				break;
 			}
 
-			System.out.println("-----------------------------------------------");
+			// System.out.println("-----------------------------------------------");
 		}
 	}
 }

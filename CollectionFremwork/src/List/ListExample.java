@@ -21,6 +21,10 @@ public class ListExample {
 		list.remove(3);
 		System.out.println(list);
 		System.out.println(list.getFirst());
+		
+		System.out.println(list.indexOf(10));
+		System.out.println(list.remove(list.indexOf(10)));
+		
 
 	}
 
