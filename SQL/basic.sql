@@ -81,8 +81,6 @@ create table dateandtime(livedatatime timestamp);
 insert into dateandtime values (current_timestamp);
 select * from dateandtime;
 
-
-
 #----------------------------------------------
 #drop and truncate and delete ,update
 
