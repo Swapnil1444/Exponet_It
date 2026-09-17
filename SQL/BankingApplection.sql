@@ -28,3 +28,12 @@ update Account set accountNo=123456789012 where accountNo=223321;
 update Account set accountNo=799097288071 where accountNo=79909728807;
 
  
+create table admins(id int primary key auto_increment ,userId varchar(20),password varchar(20));
+insert into admins (userId,password) values('swapnil9309','9763');
+
+select * from admins;
+select * from admins where userId="12345" and password='9309';
+alter table admins add column userName varchar(20);
+
+update admins set username="swapnil" where id=2;
+delete from admins where id=1;
