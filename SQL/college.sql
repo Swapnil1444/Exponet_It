@@ -55,6 +55,38 @@ select * from student where name like '%y'; # end with y char
 select * from student where name like '%wap%'; 
 select * from student where name like 's_'; 
 
+#aliages
+
+select name as studentName from student; 
+select s.name ,s.age from student as s;
+select avg(age) as avgAge from student; 
+
+create table student2025(id int ,name varchar(20));
+create table student2026(id int ,name varchar(20));
+
+insert into student2026 values(9,"bb");
+
+select * from student2025;
+select * from student2026;
+
+#union
+
+select id ,name from student2025
+union
+select id ,name from student2026;
+
+
+
+#union all
+select id ,name from student2025
+union all
+select id ,name from student2026;
+
+
+
+
+
+
 
 
 
